@@ -3,8 +3,8 @@ var res = {
     CloseNormal_png : "res/CloseNormal.png",
     CloseSelected_png : "res/CloseSelected.png",
     SnowBackground_png : "res/snowbackground.png",
-    FootSteps_png : "res/steps.png",
-    Shoveller_png : "res/Shoveller.png"
+    FootSteps_png : "res/steps_mini.png",
+    Shoveller_png : "res/Shoveller_mini.png"
 };
 
 var g_resources = [];

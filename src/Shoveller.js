@@ -1,12 +1,13 @@
 var Shoveller = cc.Sprite.extend({
     _x : null,
     _y : null,
+    _direction : null,
 
     ctor: function(x, y) {
         this._super(res.Shoveller_png);
         _x = x;
         _y = y;
-        this.attr({x: _x, y: _y});
+        this.attr({x: _x, y: _y, scale: 0.75});
     },
 
     init: function () {
@@ -14,14 +15,15 @@ var Shoveller = cc.Sprite.extend({
     },
 
     moveToPoint: function (nextPosition) {
-        // body...
-        // var nextPosition = ShovellersPath.getCurrent();
-        console.log("encapsulated movement... yay");
+
+        // console.log("encapsulated movement... yay");
         // console.log("currentPostion x = " + nextPosition.x + " y = " + nextPosition.y);
 
         var angle = Math.atan2(this.y - nextPosition.y, 
                                nextPosition.x - this.x );
         angle = angle * (180/Math.PI);
+
+        _direction = angle;
 
         this.runAction(
             cc.sequence(
@@ -33,11 +35,10 @@ var Shoveller = cc.Sprite.extend({
             );
     },
 
-    getFootSteps: function (nextPosition) {
-        var angle = this.getRotationAngle(nextPosition);
+    getFootSteps: function () {
         var footsteps = new Footsteps(this.x, this.y);
 
-        footsteps.attr({rotation: 90 + angle});
+        footsteps.attr({rotation: this.rotation});
 
         return footsteps;
     },

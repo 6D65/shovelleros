@@ -34,7 +34,7 @@ var GameLayer = cc.Layer.extend({
 
         this._place = 1.0;
         console.log("Created myself");
-        this._frameCount = 60;
+        this._frameCount = 5;
 
         // this._shoveller.runAction(
             // cc.moveBy(10, cc.p(0, size.height - 40))
@@ -52,13 +52,17 @@ var GameLayer = cc.Layer.extend({
         if(this._shoveller.getNumberOfRunningActions() === 0)
         {
             var nextPosition = ShovellersPath.getCurrent();
-
-            var footSteps = this._shoveller.getFootSteps(nextPosition);
-            this._footsteps.push({steps: footSteps, time: 0});
-
             this._shoveller.moveToPoint(nextPosition);
+        }
 
+        this._frameCount -= 1;
+
+        if(this._frameCount == 0)
+        {
+            var footSteps = this._shoveller.getFootSteps();
+            this._footsteps.push({steps: footSteps, time: 0});
             this.addChild(footSteps, 0);
+            this._frameCount = 5;
         }
 
         // udpate the elapsed time for all the footsteps
