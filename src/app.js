@@ -1,7 +1,6 @@
 
 var GameLayer = cc.Layer.extend({
     _sprite:null,
-    _place: null,
     _shoveller: null,
     _frameCount: null,
     _footsteps: null,
@@ -17,37 +16,22 @@ var GameLayer = cc.Layer.extend({
         // ask the window size
         var size = cc.winSize;
 
-        this._sprite = new cc.Sprite(res.SnowBackground_png);
-        this._sprite.attr({
-            x: size.width / 2,
-            y: size.height / 2,
-            scale: 1.0,
-            rotation: 0
-        });
-        this.addChild(this._sprite, 0);
+        this.createBackground(size);
 
-        console.log("middle of the screen : {" + size.width / 2 + " : " + size.height / 2 + "}");
+        // console.log("middle of the screen : {" + size.width / 2 + " : " + size.height / 2 + "}");
 
         this._shoveller = new Shoveller(size.width / 2, size.height /2);
         this.addChild(this._shoveller, 1);
-        //this._shoveller.number(getNumberOfRunningActions()
 
-        this._place = 1.0;
         console.log("Created myself");
         this._frameCount = 5;
-
-        // this._shoveller.runAction(
-            // cc.moveBy(10, cc.p(0, size.height - 40))
-            // cc.rotateTo(2, 0)
-        // );
 
         this.schedule(this.update, 0.1);
 
         return true;
     },
     update:function(dt) {
-        this._place = this._place + 0.01;
-        console.log("time elapsed : " + dt);
+        // console.log("time elapsed : " + dt);
 
         if(this._shoveller.getNumberOfRunningActions() === 0)
         {
@@ -74,6 +58,16 @@ var GameLayer = cc.Layer.extend({
                 // this._footsteps.steps.removeSelf()
             }
         };
+    },
+    createBackground: function (winSize) {
+        this._sprite = new cc.Sprite(res.SnowBackground_png);
+        this._sprite.attr({
+            x: winSize.width / 2,
+            y: winSize.height / 2,
+            scale: 1.0,
+            rotation: 0
+        });
+        this.addChild(this._sprite, 0);
     }
 });
 
