@@ -4,7 +4,8 @@ var res = {
     CloseSelected_png : "res/CloseSelected.png",
     SnowBackground_png : "res/snowbackground.png",
     FootSteps_png : "res/steps_mini.png",
-    Shoveller_png : "res/Shoveller_mini.png"
+    Shoveller_png : "res/Shoveller_mini.png",
+    S_Music_Snow_Walking : "res/snow_walking.mp3"
 };
 
 var g_resources = [];

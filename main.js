@@ -52,6 +52,9 @@ cc.game.onStart = function(){
     cc.view.setDesignResolutionSize(800, 450, cc.ResolutionPolicy.SHOW_ALL);
     cc.view.resizeWithBrowserSize(true);
     //load resources
+    // var audioEngine = cc.AudioEngine.getInstance();
+    // audioEngine.preloadEffect(S_Music_Snow_Walking);
+
     cc.LoaderScene.preload(g_resources, function () {
         cc.director.runScene(new MainScene());
     }, this);
