@@ -38,6 +38,7 @@ var Shoveller = cc.Sprite.extend({
         footsteps.attr({rotation: this.rotation});
 
         // var audioEngine = cc.AudioEngine.getInstance();
+        cc.audioEngine.setEffectsVolume(0.4);
         cc.audioEngine.playEffect(res.S_Music_Snow_Walking);
 
         return footsteps;
