@@ -3,3 +3,4 @@ runtime/
 tools/
 shovellers-766/
 publish/
+.vagrant/
