@@ -23,3 +23,6 @@ The script by itself will install all the prerequisites for the cocos2d-x and co
 ## Installing the cocos2d-x/js on Linux
 
 http://www.cocos2d-x.org/wiki/Linux_Installation_and_Setup
+
+## Adding GLEW cmake to make the build work
+http://jasonjuang.blogspot.com/2013/10/adding-findglewcmake-to-cmake-in-ubuntu.html
