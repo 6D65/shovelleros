@@ -1,22 +1,22 @@
 var Shoveller = cc.Sprite.extend({
-    _footSteps : null,
-    _footStepsTimer : null,
-    _FOOTSTEPS_TIMER_LENGTH : 3,
-    _FOOTSTEPS_LIFE_LENGHT : 5,
+    this._footSteps : null,
+    this._footStepsTimer : null,
+    this._FOOTSTEPS_TIMER_LENGTH : 3,
+    this._FOOTSTEPS_LIFE_LENGHT : 5,
 
     ctor: (x_, y_) ->
-        @_super(res.Shoveller_png)
-        @attr({x: x_, y: y_, scale: 0.75})
-        @init()
+        this._super(res.Shoveller_png)
+        this.attr({x: x_, y: y_, scale: 0.75})
+        this.init()
 
     init: () ->
-        @_footSteps = []
-        @_footStepsTimer = @_FOOTSTEPS_TIMER_LENGTH
+        this._footSteps = []
+        this._footStepsTimer = this._FOOTSTEPS_TIMER_LENGTH
 
     moveToPoint: (nextPosition) ->
-        rotationAngle = @getRotationAngle(nextPosition)
+        rotationAngle = this.getRotationAngle(nextPosition)
 
-        @runAction(
+        this.runAction(
             cc.sequence(
                 cc.rotateTo(1, 90 + rotationAngle),
                 cc.moveTo(2, 
@@ -26,32 +26,32 @@ var Shoveller = cc.Sprite.extend({
             )
 
     createFootSteps: () ->
-        var footsteps = new Footsteps(@x, @y)
-        footsteps.attr({rotation: @rotation})
+        var footsteps = new Footsteps(this.x, this.y)
+        footsteps.attr({rotation: this.rotation})
         return footsteps
 
     getRotationAngle: (nextPosition) ->
-        var angle = Math.atan2(@y - nextPosition.y, 
-                               nextPosition.x - @x )
+        var angle = Math.atan2(this.y - nextPosition.y, 
+                               nextPosition.x - this.x )
         return angle * (180/Math.PI)
 
     manageFootSteps: (parentLayer, dt) ->
-        if(@isTimeToCreateFootSteps())
-            var steps = @createFootSteps()
-            @_footSteps.push({steps: steps, time: 0})
+        if(this.isTimeToCreateFootSteps())
+            var steps = this.createFootSteps()
+            this._footSteps.push({steps: steps, time: 0})
             parentLayer.addChild(steps, 0)
 
-        for (var i = @_footSteps.length - 1 i >= 0 i--)
-            @_footSteps[i].time += dt
-            if(@_footSteps[i].time > @_FOOTSTEPS_LIFE_LENGHT)
-                parentLayer.removeChild(@_footSteps[i].steps)
+        for (var i = this._footSteps.length - 1 i >= 0 i--)
+            this._footSteps[i].time += dt
+            if(this._footSteps[i].time > this._FOOTSTEPS_LIFE_LENGHT)
+                parentLayer.removeChild(this._footSteps[i].steps)
 
     isTimeToCreateFootSteps: () ->
-        var current = @_footStepsTimer
+        var current = this._footStepsTimer
 
         if(current === 0)
-            @_footStepsTimer = @_FOOTSTEPS_TIMER_LENGTH
-        @_footStepsTimer -= 1
+            this._footStepsTimer = this._FOOTSTEPS_TIMER_LENGTH
+        this._footStepsTimer -= 1
 
         return current === 0 ? true : false
 })
