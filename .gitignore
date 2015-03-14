@@ -4,3 +4,5 @@ tools/
 shovellers-766/
 publish/
 .vagrant/
+node_modules/
+Sources/

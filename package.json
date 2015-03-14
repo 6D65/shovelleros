@@ -1,0 +1,31 @@
+{
+  "name": "snow",
+  "version": "0.0.0",
+  "description": "snow game",
+  "main": "app.js",
+  "dependencies": {
+    "gulp": "~3.5.2"
+  },
+  "devDependencies": {
+    "gulp-coffee": "~1.4.1",
+    "gulp-util": "~2.2.14",
+    "gulp-clean": "~0.2.4",
+    "coffee-script": "~1.7.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junxiong/cocos2d-x.git"
+  },
+  "keywords": [
+    "cocos2d-x"
+  ],
+  "author": "junxiong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/junxiong/cocos2d-x/issues"
+  },
+  "homepage": "https://github.com/junxiong/cocos2d-x"
+}
