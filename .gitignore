@@ -6,3 +6,4 @@ publish/
 .vagrant/
 node_modules/
 Sources/
+build/

@@ -12,18 +12,18 @@ paths =
 gulp.task 'copy-config', ->
 # Copy configurations
   gulp.src paths.configuration
-      .pipe gulp.dest('Sources/')
+      .pipe gulp.dest('build/')
 
 gulp.task 'copy-resources', ->
 # Copy resources
   gulp.src paths.resources
-      .pipe gulp.dest('Sources/Resources/')
+      .pipe gulp.dest('build/Resources/')
 
 gulp.task 'compile', ->
 # Compile coffee script files
   gulp.src paths.scripts
       .pipe (coffee {bare: true})
-      .pipe gulp.dest('Sources/')
+      .pipe gulp.dest('build/')
 
 gulp.task 'clean', ->
   gulp.src 'Sources/**/*.*', read: false

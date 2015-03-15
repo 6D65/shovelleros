@@ -1,7 +1,7 @@
 {
-  "name": "snow",
-  "version": "0.0.0",
-  "description": "snow game",
+  "name": "Shovelleros",
+  "version": "0.0.1",
+  "description": "Shovelleros game",
   "main": "app.js",
   "dependencies": {
     "gulp": "~3.5.2"
@@ -17,15 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/junxiong/cocos2d-x.git"
+    "url": "https://github.com/6d65/Shovelleros.git"
   },
   "keywords": [
-    "cocos2d-x"
   ],
-  "author": "junxiong",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/junxiong/cocos2d-x/issues"
+    "url": "https://github.com/6d65/Shovelleros/issues"
   },
-  "homepage": "https://github.com/junxiong/cocos2d-x"
 }
