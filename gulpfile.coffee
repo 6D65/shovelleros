@@ -2,12 +2,20 @@ gulp = require 'gulp'
 
 coffee = require 'gulp-coffee'
 clean = require 'gulp-clean'
+shell = require 'gulp-shell'
 
 paths =
   scripts: ['src/**/*.coffee']
   resources: ['src/Resources/**/*.coffee']
+  buildfiles: ['buildfiles/**/*.*', 'buildfiles/.settings', 'buildfiles/.project', 'buildfiles/.cocos-project.json']
   configuration: ['src/*.xml', 'src/*.ccbx']
 
+gulp.task 'run-cocos', ->
+  shell.task (['cd /vagrant/shovellerosdev/shovelleros/build', 'cocos run -p web --host 0.0.0.0:8080'])
+
+gulp.task 'copy-buildfiles', ->
+  gulp.src paths.buildfiles
+      .pipe gulp.dest('build/')
 
 gulp.task 'copy-config', ->
 # Copy configurations
@@ -26,10 +34,10 @@ gulp.task 'compile', ->
       .pipe gulp.dest('build/')
 
 gulp.task 'clean', ->
-  gulp.src 'Sources/**/*.*', read: false
+  gulp.src 'build/**/*.*', read: false
       .pipe clean()
 
-gulp.task 'build', ['copy-config', 'copy-resources', 'compile']
+gulp.task 'build', ['copy-buildfiles', 'copy-config', 'copy-resources', 'compile']
 
 # Rerun the task when a file changes
 gulp.task 'watch', ['build'], ->

@@ -4,7 +4,8 @@
   "description": "Shovelleros game",
   "main": "app.js",
   "dependencies": {
-    "gulp": "~3.5.2"
+    "gulp": "~3.5.2",
+    "gulp-shell": "^0.4.0"
   },
   "devDependencies": {
     "gulp-coffee": "~1.4.1",
@@ -19,9 +20,8 @@
     "type": "git",
     "url": "https://github.com/6d65/Shovelleros.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/6d65/Shovelleros/issues"
-  },
+  }
 }
