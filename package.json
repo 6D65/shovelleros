@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "gulp": "~3.5.2",
-    "gulp-shell": "^0.4.0"
+    "gulp-shell": "^0.4.0",
+    "gulp-symlink": "^2.1.0"
   },
   "devDependencies": {
     "gulp-coffee": "~1.4.1",
