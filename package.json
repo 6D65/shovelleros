@@ -6,6 +6,7 @@
   "dependencies": {
     "gulp": "~3.5.2",
     "gulp-shell": "^0.4.0",
+    "gulp-sym": "0.0.14",
     "gulp-symlink": "^2.1.0"
   },
   "devDependencies": {

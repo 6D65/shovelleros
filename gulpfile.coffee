@@ -3,17 +3,17 @@ gulp = require 'gulp'
 coffee = require 'gulp-coffee'
 clean = require 'gulp-clean'
 shell = require 'gulp-shell'
-symlink = require 'gulp-symlink'
+symlink = require 'gulp-sym'
 
 paths =
   scripts: ['src/**/*.coffee']
   resources: ['src/Resources/**/*.coffee']
   buildfiles: ['buildfiles/**/*.*', 'buildfiles/.settings', 'buildfiles/.project', 'buildfiles/.cocos-project.json']
   configuration: ['src/*.xml', 'src/*.ccbx']
-  frameworks: ['frameworks']
+  frameworks: ['frameworks/**/*.*']
 
 gulp.task 'run-cocos', ->
-  shell.task (['cd /vagrant/shovellerosdev/shovelleros/build', 'cocos run -p web --host 0.0.0.0:8080'])
+  shell.task (['cd /vagrant/shovelleros/build', 'cocos run -p web --host 0.0.0.0:8080'])
 
 gulp.task 'copy-buildfiles', ->
   gulp.src paths.buildfiles
@@ -40,10 +40,14 @@ gulp.task 'clean', ->
       .pipe clean()
 
 gulp.task 'symlink-frameworks', ->
-  gulp.src frameworks
-    .pipe (symlink('build/frameworks'))
+  gulp.src paths.frameworks
+    .pipe gulp.dest('build/frameworks')
 
-gulp.task 'build', ['copy-buildfiles', 'copy-config', 'copy-resources', 'compile']
+#gulp.task 'symlink-frameworks', ->
+#  gulp.src paths.frameworks
+#    .pipe (symlink(['build/frameworks']))
+
+gulp.task 'build', ['copy-buildfiles', 'copy-config', 'copy-resources', 'compile', 'symlink-frameworks', 'run-cocos']
 
 # Rerun the task when a file changes
 gulp.task 'watch', ['build'], ->
