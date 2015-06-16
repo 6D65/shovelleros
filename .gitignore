@@ -7,3 +7,5 @@ publish/
 node_modules/
 Sources/
 build/
+*.sublime-workspace
+*.sublime-project
