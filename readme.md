@@ -19,6 +19,10 @@ It looks like the right tool for the job.
 [Building Packer Docker Images](https://www.packer.io/docs/builders/docker.html)
 
 
+This seems to be the answer:
+
+[Getting started with cocos2d-html5](https://github.com/cocos2d/cocos2d-html5) and a working html5 dev environment seems to be a bowerinstall away.
+
 
 ```bash
 vagrant up
