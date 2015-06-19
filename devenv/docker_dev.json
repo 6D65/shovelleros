@@ -14,6 +14,7 @@
       "ssh_username": "packer",
       "ssh_password": "packer",
       "ssh_wait_timeout": "30s",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
   }
   ],
   "provisioners": [
@@ -21,6 +22,6 @@
         "type": "shell",
         "script":"setup.sh"
     }
-  ]
+  ],
   "post-processors": ["vagrant"]
 }
